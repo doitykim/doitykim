@@ -1,5 +1,5 @@
 #
-# Create New Cluster or Remove Cluster
+# Remove Cluster
 #
 
 . "$HOME/scripts/globalval.ps1"
