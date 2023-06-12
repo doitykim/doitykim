@@ -8,7 +8,7 @@
 foreach ($f in (import-csv -path $TgtFile))
 {
 	echo $f.alias
-	$esxcli = Get-Esxcli -vmhost $f.alias
+	$esxcli = Get-Esxcli -vmhost $f.alias -V2
 	$esxcli.system.module.set($false, $false, $unload_module1 ) 
 	$esxcli.system.module.set($false, $false, $unload_module2 ) 
 }

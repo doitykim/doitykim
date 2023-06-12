@@ -15,7 +15,7 @@ foreach ($f in (import-csv -path $TgtFile))
  	$sw_iscsi = Get-VMhost $f.alias |Get-VMHostHba -Type IScsi | Where {$_.Model -eq "iSCSI Software Adapter"}
 
 	echo $f.alias
-	$esxcli = Get-Esxcli -vmhost $f.alias
+	$esxcli = Get-Esxcli -vmhost $f.alias -V2
 	$esxcli.iscsi.networkportal.add($sw_iscsi,$true,"vmk2")
 	$esxcli.iscsi.networkportal.add($sw_iscsi,$true,"vmk3")
 }
