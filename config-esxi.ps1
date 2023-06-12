@@ -39,6 +39,8 @@ function Show-Menu
      Write-Host "34: Bind iSCSI Kernel"
      Write-Host "35: Set Path policy"
      Write-Host "36: Set Default Path policy"
+     Write-Host "37: Disable Delayed Ack"
+     Write-Host "38: Set iops"
      Write-Host "============================================="
      Write-Host "      >>>>>>>>>> Operation <<<<<<<<<<"
      Write-Host "============================================="
@@ -115,6 +117,12 @@ do
            } ‘36’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/3.storage/310.set_default_path_policy-v2.ps1
+           } ‘37’ {
+                cls
+                invoke-expression -Command $PSScriptRoot/3.storage/318.Delayed_ACK_Disable.ps1
+           } ‘38’ {
+                cls
+                invoke-expression -Command $PSScriptRoot/3.storage/317.iops_set.ps1
            } ‘41’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/1.host/980.host-enter_maintenance_mode.ps1
