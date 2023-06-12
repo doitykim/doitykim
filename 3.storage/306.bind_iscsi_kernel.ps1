@@ -16,7 +16,7 @@ foreach ($f in (import-csv -path $TgtFile))
 
 	echo $f.alias
 	$esxcli = Get-Esxcli -vmhost $f.alias -V2
-	$esxcli.iscsi.networkportal.add($sw_iscsi,$true,"vmk2")
-	$esxcli.iscsi.networkportal.add($sw_iscsi,$true,"vmk3")
+	$esxcli.iscsi.networkportal.add.invoke(@{adapter=$sw_iscsi; nic="vmk2"; force=$true})
+	$esxcli.iscsi.networkportal.add.invoke(@{adapter=$sw_iscsi; nic="vmk3"; force=$true})
 }
 Disconnect-VIServer -Server * -Force -confirm:$false
