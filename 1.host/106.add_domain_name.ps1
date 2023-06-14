@@ -8,8 +8,8 @@ foreach ($f in (import-csv -path $TgtFile))
 {
 	echo $f.alias
 	$vmHostNetworkInfo = Get-VmHostNetwork -Host $f.alias
-	#Set-VmHostNetwork -Network $vmHostNetworkInfo -DomainName $DomainName -Dnsaddress $DnsSvr
-	#Set-VmHostNetwork -HostName $f.hname -Network $vmHostNetworkInfo -DomainName $DomainName -Dnsaddress $DnsSvr
-	Set-VmHostNetwork -HostName $f.hname -Network $vmHostNetworkInfo -DomainName $DomainName 
+	#Set-VmHostNetwork -Network $vmHostNetworkInfo -DomainName $domain_name -Dnsaddress $dns_svr
+	#Set-VmHostNetwork -HostName $f.hname -Network $vmHostNetworkInfo -DomainName $domain_name -Dnsaddress $dns_svr
+	Set-VmHostNetwork -HostName $f.hname -Network $vmHostNetworkInfo -DomainName $domain_name  -Dnsaddress $dns_svr
 }
 Disconnect-VIServer -Server * -Force -confirm:$false

@@ -13,20 +13,20 @@ $time2 = "time2.daumkakao.io"
 $time3 = "time3.daumkakao.io"
 
 # domain name
-$DomainName = "virt.onkakao.net"
-$DnsSvr = "10.20.30.40"
+$domain_name = "virt.onkakao.net"
+$dns_svr = "10.20.30.40"
 
 # portgroup
-$SVC1_PG_NAME = "service-for-v10"
-$VMOT_PG_NAME = "mgmt-for-vmotion"
-$MGMT_PG_NAME = "mgmt-for-vcenter"
-$ISC1_PG_NAME = "service-for-iscsi1"
-$ISC2_PG_NAME = "service-for-iscsi2"
+$service_pg = "service-for-v10"
+$vmotion_pg = "mgmt-for-vmotion"
+$mgmt_pg = "mgmt-for-vcenter"
+$iscsi1_pg = "service-for-iscsi1"
+$iscsi2_pg = "service-for-iscsi2"
 
 # vlan portgroup
-$ISC1_PG_VLAN = "50"
-$ISC2_PG_VLAN = "60"
-$SVC1_PG_VLAN = "10"
+$iscsi1_pg_vlan = "50"
+$iscsi2_pg_vlan = "60"
+$service_pg_vlan = "10"
 
 # unload module
 $unload_module1="bnx2i"
