@@ -5,7 +5,7 @@
 #
 #
 $TgtFile = "$HOME/scripts/0.target/target_gasan.csv"
-$VcInfoFile = "$HOME/scripts/0.target/vcenter_vcpg.csv"
+$VcInfoFile = "$HOME/scripts/0.target/vcenter_vc70.csv"
 
 # ntp server
 $time1 = "time1.daumkakao.io"
