@@ -60,87 +60,87 @@ do
      $input = Read-Host “Please make a selection”
      switch ($input)
      {
-           ‘1’ {
+	‘1’ { 
+		cls
+		invoke-expression -Command $PSScriptRoot/1.cluster/C01.new_cluster.ps1 }
+	‘2’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.cluster/C01.new_cluster.ps1
-           } ‘2’ {
+                invoke-expression -Command $PSScriptRoot/1.cluster/C02.del_cluster.ps1 } 
+	‘3’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.cluster/C02.del_cluster.ps1
-           } ‘3’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H03.add_host.ps1 } 
+	‘4’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H03.add_host.ps1
-           } ‘4’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H06.add_domain_name.ps1 } 
+	‘5’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H06.add_domain_name.ps1
-           } ‘5’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H04.add_ntp.ps1 } 
+	‘6’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H04.add_ntp.ps1
-           } ‘6’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H12.setup_syslog.ps1 } 
+	‘7’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H12.setup_syslog.ps1
-           } ‘7’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H15.setup_log_size.ps1 } 
+	‘8’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H15.setup_log_size.ps1
-           } ‘8’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H17.set_powermgmt.ps1 } 
+	‘9’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H17.set_powermgmt.ps1
-           } ‘9’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H08.start_ssh_service.ps1 } 
+	‘10’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H08.start_ssh_service.ps1
-           } ‘10’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H10.disable_ssh_warning_message.ps1 } 
+	‘21’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H10.disable_ssh_warning_message.ps1
-           } ‘21’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N01.add_vswitch_vlan.ps1 } 
+	‘22’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N01.add_vswitch_vlan.ps1
-           } ‘22’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N02.change_lb_policy.ps1 } 
+	‘23’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N02.change_lb_policy.ps1
-           } ‘23’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N04.set_jumbo_vmk.ps1 } 
+	‘24’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N04.set_jumbo_vmk.ps1
-           } ‘24’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N06.change_iscsi_nic_order.ps1 } 
+	‘31’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N06.change_iscsi_nic_order.ps1
-           } ‘31’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S14.rename_local_datastore.ps1 } 
+	‘32’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S14.rename_local_datastore.ps1
-           } ‘32’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S02.enable_sw_iscsi.ps1 } 
+	‘33’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S02.enable_sw_iscsi.ps1
-           } ‘33’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S03.add_iscsi_target.ps1 } 
+	‘34’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S03.add_iscsi_target.ps1
-           } ‘34’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S06.bind_iscsi_kernel.ps1 } 
+	‘35’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S06.bind_iscsi_kernel.ps1
-           } ‘35’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1 } 
+	‘36’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1
-           } ‘36’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S08.set_path_policy.ps1 } 
+	‘37’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S08.set_path_policy.ps1
-           } ‘37’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S18.set_delayed_ack_disable.ps1 } 
+	‘38’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S18.set_delayed_ack_disable.ps1
-           } ‘38’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S17.set_iops.ps1 } 
+	‘39’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S17.set_iops.ps1
-           } ‘39’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1 } 
+	‘41’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1
-           } ‘41’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H80.host_enter_maintenance_mode.ps1 } 
+	‘42’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H80.host_enter_maintenance_mode.ps1
-           } ‘42’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H81.host_exit_maintenance_mode.ps1 } 
+	‘43’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H81.host_exit_maintenance_mode.ps1
-           } ‘43’ {
-                cls
-                invoke-expression -Command $PSScriptRoot/2.host/H82.host_rebooting.ps1
-           } ‘q’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H82.host_rebooting.ps1 } 
+	‘q’ {
                 return
-           }
+            }
      }
      pause
 }

@@ -1,6 +1,8 @@
 #
 # Copy Local Client File to DataStore
 #
+# 로컬 파일을 각 클러스터의 공유스토리지로 공유하기
+# 별도의 tgt_gs_patch.csv 파일에 공유 스토리지 리스트 필요
 
 . "$HOME/scripts/globalval.ps1"
 
