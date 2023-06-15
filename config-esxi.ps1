@@ -83,7 +83,7 @@ do
                 invoke-expression -Command $PSScriptRoot/2.host/H15.setup_log_size.ps1
            } ‘8’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H17.set_powermgmt-v2.ps1
+                invoke-expression -Command $PSScriptRoot/2.host/H17.set_powermgmt.ps1
            } ‘9’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/2.host/H08.start_ssh_service.ps1
@@ -92,16 +92,16 @@ do
                 invoke-expression -Command $PSScriptRoot/2.host/H10.disable_ssh_warning_message.ps1
            } ‘21’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N01.add_vswitch_VLAN.ps1
+                invoke-expression -Command $PSScriptRoot/3.network/N01.add_vswitch_vlan.ps1
            } ‘22’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N02.change-lb-policy.ps1
+                invoke-expression -Command $PSScriptRoot/3.network/N02.change_lb_policy.ps1
            } ‘23’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/3.network/N04.set_jumbo_vmk.ps1
            } ‘24’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.network/N06.change-iscsi-nic-order.ps1
+                invoke-expression -Command $PSScriptRoot/3.network/N06.change_iscsi_nic_order.ps1
            } ‘31’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/4.storage/S14.rename_local_datastore.ps1
@@ -131,10 +131,10 @@ do
                 invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1
            } ‘41’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H80.host-enter_maintenance_mode.ps1
+                invoke-expression -Command $PSScriptRoot/2.host/H80.host_enter_maintenance_mode.ps1
            } ‘42’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H81.host-exit_maintenance_mode.ps1
+                invoke-expression -Command $PSScriptRoot/2.host/H81.host_exit_maintenance_mode.ps1
            } ‘43’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/2.host/H82.host_rebooting.ps1

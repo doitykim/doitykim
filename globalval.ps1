@@ -4,11 +4,12 @@
 # vCenter 정보와 작업 대상 ESXi 서버에 사용될 정보를 저장한 파일을 지정한다.
 #
 #
-$TgtFile = "$HOME/scripts/0.target/target_gasan.csv"
-$VcInfoFile = "$HOME/scripts/0.target/vcenter_vc70.csv"
+$TgtFile = "$HOME/scripts/0.target/tgt_g.csv"
+$VcInfoFile = "$HOME/scripts/0.target/vc_vc70.csv"
 
 # ntp server
-$time1 = "time1.daumkakao.io" $time2 = "time2.daumkakao.io"
+$time1 = "time1.daumkakao.io" 
+$time2 = "time2.daumkakao.io"
 $time3 = "time3.daumkakao.io"
 
 # domain name
