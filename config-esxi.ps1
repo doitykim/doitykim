@@ -13,41 +13,43 @@ function Show-Menu
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Host <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "1: Create Cluster"
-     Write-Host "2: Delete Cluster"
-     Write-Host "3: Add Host"
-     Write-Host "4: Add Domain Name"
-     Write-Host "5: Add NTP"
-     Write-Host "6: Setup Syslog --> Not Used"
-     Write-Host "7: Setup Logsize"
-     Write-Host "8: Setup Power Management"
-     Write-Host "9: Start SSH Service"
-     Write-Host "10: Disable SSH Warning Message"
+     Write-Host "1: create cluster"
+     Write-Host "2: delete cluster"
+     Write-Host "3: add host"
+     Write-Host "4: add domain name"
+     Write-Host "5: add ntp server"
+     Write-Host "7: setup logsize"
+     Write-Host "8: setup power management"
+     Write-Host "9: start ssh service"
+     Write-Host "10: disable ssh warning message"
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Network <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "21: Add vSwitch"
-     Write-Host "22: Change LB Policy"
-     Write-Host "23: Set Jumbo Frame"
-     Write-Host "24: Change iSCSI Nic Order"
+     Write-Host "21: add vswitch"
+     Write-Host "22: change loadbalance policy"
+     Write-Host "23: set jumbo frame"
+     Write-Host "24: change iscsi nic order"
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Storage <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "31: Rename Local Datastore"
-     Write-Host "32: Enable iSCSI Initiator"
-     Write-Host "33: Add iSCSI Target"
-     Write-Host "34: Bind iSCSI Kernel"
-     Write-Host "35: Set Path policy"
-     Write-Host "36: Set Default Path policy"
-     Write-Host "37: Disable Delayed Ack"
-     Write-Host "38: Set iops"
-     Write-Host "39: add claim rule"
+     Write-Host "31: rename local datastore"
+     Write-Host "32: enable iscsi initiator"
+     Write-Host "33: add iscsi target"
+     Write-Host "34: bind iscsi kernel"
+     Write-Host "35: add claim rule"
+     Write-Host "37: disable delayed ack"
+     Write-Host "38: set iops"
      Write-Host "============================================="
      Write-Host "      >>>>>>>>>> Operation <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "41: Host Enter Maintenance Mode"
-     Write-Host "42: Host Exit Maintenance Mode"
-     Write-Host "43: Host Reboot"
+     Write-Host "41: host enter maintenance mode"
+     Write-Host "42: host exit maintenance mode"
+     Write-Host "43: host reboot"
+     Write-Host "============================================="
+     Write-Host "      >>>>>>>>>> Optional Config <<<<<<<<<<"
+     Write-Host "============================================="
+     Write-Host "36: set path policy"
+     Write-Host "39: Set default path policy"
 
      Write-Host “Q: Quit.”
 }
@@ -114,19 +116,19 @@ do
                 invoke-expression -Command $PSScriptRoot/4.storage/S06.bind_iscsi_kernel.ps1
            } ‘35’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S08.set-path-policy.ps1
+                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1
            } ‘36’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1
+                invoke-expression -Command $PSScriptRoot/4.storage/S08.set_path_policy.ps1
            } ‘37’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S18.delayed_aak_disable.ps1
+                invoke-expression -Command $PSScriptRoot/4.storage/S18.set_delayed_ack_disable.ps1
            } ‘38’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S17.iops_set.ps1
+                invoke-expression -Command $PSScriptRoot/4.storage/S17.set_iops.ps1
            } ‘39’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1
+                invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1
            } ‘41’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/2.host/H80.host-enter_maintenance_mode.ps1
