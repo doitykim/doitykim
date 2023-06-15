@@ -16,8 +16,8 @@ function Show-Menu
      Write-Host "1: Create Cluster"
      Write-Host "2: Delete Cluster"
      Write-Host "3: Add Host"
-     Write-Host "4: Add NTP"
-     Write-Host "5: Add Domain Name"
+     Write-Host "4: Add Domain Name"
+     Write-Host "5: Add NTP"
      Write-Host "6: Setup Syslog"
      Write-Host "7: Setup Logsize"
      Write-Host "8: Setup Power Management"
@@ -68,10 +68,10 @@ do
                 invoke-expression -Command $PSScriptRoot/2.host/H03.add_host.ps1
            } ‘4’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H04.add_ntp.ps1
+                invoke-expression -Command $PSScriptRoot/2.host/H06.add_domain_name.ps1
            } ‘5’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.host/H06.add_domain_name.ps1
+                invoke-expression -Command $PSScriptRoot/2.host/H04.add_ntp.ps1
            } ‘6’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/2.host/H12.setup_syslog.ps1
