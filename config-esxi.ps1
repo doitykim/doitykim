@@ -18,7 +18,7 @@ function Show-Menu
      Write-Host "3: Add Host"
      Write-Host "4: Add Domain Name"
      Write-Host "5: Add NTP"
-     Write-Host "6: Setup Syslog"
+     Write-Host "6: Setup Syslog --> Not Used"
      Write-Host "7: Setup Logsize"
      Write-Host "8: Setup Power Management"
      Write-Host "9: Start SSH Service"
@@ -41,6 +41,7 @@ function Show-Menu
      Write-Host "36: Set Default Path policy"
      Write-Host "37: Disable Delayed Ack"
      Write-Host "38: Set iops"
+     Write-Host "39: add claim rule"
      Write-Host "============================================="
      Write-Host "      >>>>>>>>>> Operation <<<<<<<<<<"
      Write-Host "============================================="
@@ -123,6 +124,9 @@ do
            } ‘38’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/4.storage/S17.iops_set.ps1
+           } ‘39’ {
+                cls
+                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1
            } ‘41’ {
                 cls
                 invoke-expression -Command $PSScriptRoot/2.host/H80.host-enter_maintenance_mode.ps1

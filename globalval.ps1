@@ -8,8 +8,7 @@ $TgtFile = "$HOME/scripts/0.target/target_gasan.csv"
 $VcInfoFile = "$HOME/scripts/0.target/vcenter_vc70.csv"
 
 # ntp server
-$time1 = "time1.daumkakao.io"
-$time2 = "time2.daumkakao.io"
+$time1 = "time1.daumkakao.io" $time2 = "time2.daumkakao.io"
 $time3 = "time3.daumkakao.io"
 
 # domain name
@@ -27,6 +26,11 @@ $iscsi2_pg = "service-for-iscsi2"
 $iscsi1_pg_vlan = "50"
 $iscsi2_pg_vlan = "60"
 $service_pg_vlan = "10"
+
+#iscsi
+$iscsi_adapter="vmhba64"
+$iscsi_vmk1="vmk2"
+$iscsi_vmk2="vmk3"
 
 # unload module
 $unload_module1="bnx2i"
