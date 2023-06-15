@@ -8,7 +8,7 @@ foreach ($f in (import-csv -path $TgtFile))
 {
 	echo $f.alias
 	#vmotion port group
-	New-VMHostNetworkAdapter -VMHost $f.alias -VirtualSwitch vSwitch0 -PortGroup $vmotion_pg  -IP $f.vmotion -SubnetMask 255.255.255.0 -VMotionEnabled $true
+	New-VMHostNetworkAdapter -VMHost $f.alias -VirtualSwitch vSwitch0 -PortGroup $vmotion_pg  -IP $f.vmotion -SubnetMask 255.255.254.0 -VMotionEnabled $true
 	Get-VirtualPortGroup -Name $vmotion_pg -VMHost $f.alias|set-virtualportgroup -VlanID $mgmt_pg_vlan
 	# 
 	New-VirtualSwitch -VMHost $f.alias -Name vSwitch1 -Nic vmnic4,vmnic5 -Mtu 9000
