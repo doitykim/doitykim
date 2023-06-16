@@ -9,9 +9,9 @@
 $TgtPatch="$HOME/scripts/0.target/tgt_gs_patch.csv"
 $PatchFile="$HOME/scripts/VMware-ESXi-7.0U3m-21686933-depot.zip"
 
-foreach ($f in (import-csv -path $TgtFile))
+foreach ($f in (import-csv -path $TgtPatch))
 {
-	echo $f.alias 
+	echo $f.lun_name
 	#
 	$Storepath="vmstore:\gs\"+$f.lun_name+"\"
 	Copy-DatastoreItem -Item $PatchFile -Destination $Storepath
