@@ -1,13 +1,11 @@
 #
-# restart to host
+# Remove Cluster
 #
 
 . "$HOME/scripts/globalval.ps1"
 
 foreach ($f in (import-csv -path $TgtFile))
 {
-	echo $f.alias
-	Restart-VMhost $f.alias -RunAsync -force:$true -confirm:$false
-
+	Remove-Cluster -Location $f.location -Name $f.clstlist
 }
 Disconnect-VIServer -Server * -Force -confirm:$false

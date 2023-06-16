@@ -6,11 +6,12 @@
 
 foreach ($f in (import-csv -path $TgtFile))
 {
-	echo $f.ip
-	$esxcli = Get-Esxcli -vmhost $f.ip -v2
+	echo $f.alias
+	$esxcli = Get-Esxcli -vmhost $f.alias -v2
 	$arguments = $esxcli.software.profile.update.CreateArgs()
 	$arguments.depot = $f.path+$f.FileName
-	$arguments.profile = “DEL-ESXi-702_17867351-A05”
+	$arguments.profile ="ESXi-7.0U3m-21686933-standard"
 	$esxcli.software.profile.update.Invoke($arguments)
 }
+
 Disconnect-VIServer -Server * -Force -confirm:$false

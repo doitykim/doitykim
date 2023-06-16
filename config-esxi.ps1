@@ -13,38 +13,43 @@ function Show-Menu
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Host <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "1: Create Cluster"
-     Write-Host "2: Delete Cluster"
-     Write-Host "3: Add Host"
-     Write-Host "4: Add NTP"
-     Write-Host "5: Add Domain Name"
-     Write-Host "6: Setup Syslog"
-     Write-Host "7: Setup Logsize"
-     Write-Host "8: Setup Power Management"
-     Write-Host "9: Start SSH Service"
-     Write-Host "10: Disable SSH Warning Message"
+     Write-Host "1: create cluster"
+     Write-Host "2: delete cluster"
+     Write-Host "3: add host"
+     Write-Host "4: add domain name"
+     Write-Host "5: add ntp server"
+     Write-Host "7: setup logsize"
+     Write-Host "8: setup power management"
+     Write-Host "9: start ssh service"
+     Write-Host "10: disable ssh warning message"
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Network <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "21: Add vSwitch"
-     Write-Host "22: Change LB Policy"
-     Write-Host "23: Set Jumbo Frame"
-     Write-Host "24: Change iSCSI Nic Order"
+     Write-Host "21: add vswitch"
+     Write-Host "22: change loadbalance policy"
+     Write-Host "23: set jumbo frame"
+     Write-Host "24: change iscsi nic order"
      Write-Host "============================================="
      Write-Host "     >>>>>>>>>> Config Storage <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "31: Rename Local Datastore"
-     Write-Host "32: Enable iSCSI Initiator"
-     Write-Host "33: Add iSCSI Target"
-     Write-Host "34: Bind iSCSI Kernel"
-     Write-Host "35: Set Path policy"
-     Write-Host "36: Set Default Path policy"
+     Write-Host "31: rename local datastore"
+     Write-Host "32: enable iscsi initiator"
+     Write-Host "33: add iscsi target"
+     Write-Host "34: bind iscsi kernel"
+     Write-Host "35: add claim rule"
+     Write-Host "37: disable delayed ack"
+     Write-Host "38: set iops"
      Write-Host "============================================="
      Write-Host "      >>>>>>>>>> Operation <<<<<<<<<<"
      Write-Host "============================================="
-     Write-Host "41: Host Enter Maintenance Mode"
-     Write-Host "42: Host Exit Maintenance Mode"
-     Write-Host "43: Host Reboot"
+     Write-Host "41: host enter maintenance mode"
+     Write-Host "42: host exit maintenance mode"
+     Write-Host "43: host reboot"
+     Write-Host "============================================="
+     Write-Host "      >>>>>>>>>> Optional Config <<<<<<<<<<"
+     Write-Host "============================================="
+     Write-Host "36: set path policy"
+     Write-Host "39: Set default path policy"
 
      Write-Host “Q: Quit.”
 }
@@ -55,78 +60,87 @@ do
      $input = Read-Host “Please make a selection”
      switch ($input)
      {
-           ‘1’ {
+	‘1’ { 
+		cls
+		invoke-expression -Command $PSScriptRoot/1.cluster/C01.new_cluster.ps1 }
+	‘2’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.cluster/100.new_cluster.ps1
-           } ‘2’ {
+                invoke-expression -Command $PSScriptRoot/1.cluster/C02.del_cluster.ps1 } 
+	‘3’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/4.cluster/101.del_cluster.ps1
-           } ‘3’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H03.add_host.ps1 } 
+	‘4’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/103.add_host.ps1
-           } ‘4’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H06.add_domain_name.ps1 } 
+	‘5’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/104.add_ntp.ps1
-           } ‘5’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H04.add_ntp.ps1 } 
+	‘6’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/106.add_domain_name.ps1
-           } ‘6’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H12.setup_syslog.ps1 } 
+	‘7’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/112.setup_syslog.ps1
-           } ‘7’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H15.setup_log_size.ps1 } 
+	‘8’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/115.setup_log_size.ps1
-           } ‘8’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H17.set_powermgmt.ps1 } 
+	‘9’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/117.set_powermgmt-v2.ps1
-           } ‘9’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H08.start_ssh_service.ps1 } 
+	‘10’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/108.start_ssh_service.ps1
-           } ‘10’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H10.disable_ssh_warning_message.ps1 } 
+	‘21’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/110.disable_ssh_warning_message.ps1
-           } ‘21’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N01.add_vswitch_vlan.ps1 } 
+	‘22’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.network/201.add_vswitch_VLAN.ps1
-           } ‘22’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N02.change_lb_policy.ps1 } 
+	‘23’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.network/202.change-lb-policy.ps1
-           } ‘23’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N04.set_jumbo_vmk.ps1 } 
+	‘24’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.network/204.set_jumbo_vmk.ps1
-           } ‘24’ {
+                invoke-expression -Command $PSScriptRoot/3.network/N06.change_iscsi_nic_order.ps1 } 
+	‘31’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/2.network/206.change-iscsi-nic-order.ps1
-           } ‘31’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S14.rename_local_datastore.ps1 } 
+	‘32’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/314.rename_local_datastore.ps1
-           } ‘32’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S02.enable_sw_iscsi.ps1 } 
+	‘33’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/302.enable_sw_iscsi.ps1
-           } ‘33’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S03.add_iscsi_target.ps1 } 
+	‘34’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/303.add_iscsi_target.ps1
-           } ‘34’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S06.bind_iscsi_kernel.ps1 } 
+	‘35’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/306.bind_iscsi_kernel.ps1
-           } ‘35’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S13.add_claim_rule.ps1 } 
+	‘36’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/308.set-path-policy.ps1
-           } ‘36’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S08.set_path_policy.ps1 } 
+	‘37’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/3.storage/310.set_default_path_policy-v2.ps1
-           } ‘41’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S18.set_delayed_ack_disable.ps1 } 
+	‘38’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/980.host-enter_maintenance_mode.ps1
-           } ‘42’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S17.set_iops.ps1 } 
+	‘39’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/981.host-exit_maintenance_mode.ps1
-           } ‘43’ {
+                invoke-expression -Command $PSScriptRoot/4.storage/S10.set_default_path_policy.ps1 } 
+	‘41’ {
                 cls
-                invoke-expression -Command $PSScriptRoot/1.host/997.host_rebooting.ps1
-           } ‘q’ {
+                invoke-expression -Command $PSScriptRoot/2.host/H80.host_enter_maintenance_mode.ps1 } 
+	‘42’ {
+                cls
+                invoke-expression -Command $PSScriptRoot/2.host/H81.host_exit_maintenance_mode.ps1 } 
+	‘43’ {
+                cls
+                invoke-expression -Command $PSScriptRoot/2.host/H82.host_rebooting.ps1 } 
+	‘q’ {
                 return
-           }
+            }
      }
      pause
 }
