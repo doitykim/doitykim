@@ -17,7 +17,8 @@ $domain_name = "virt.onkakao.net"
 $dns_svr = "10.20.30.40"
 
 # portgroup
-$service_pg = "service-for-v10"
+$service1_pg = "service-for-v10"
+$service2_pg = "service-for-v20"
 $vmotion_pg = "mgmt-for-vmotion"
 $mgmt_pg = "mgmt-for-vcenter"
 $iscsi1_pg = "service-for-iscsi1"
@@ -26,7 +27,8 @@ $iscsi2_pg = "service-for-iscsi2"
 # vlan portgroup
 $iscsi1_pg_vlan = "50"
 $iscsi2_pg_vlan = "60"
-$service_pg_vlan = "10"
+$service1_pg_vlan = "10"
+$service2_pg_vlan = "20"
 
 #iscsi
 $iscsi_adapter="vmhba64"
@@ -34,8 +36,8 @@ $iscsi_vmk1="vmk2"
 $iscsi_vmk2="vmk3"
 
 # unload module
-$unload_module1="bnx2i"
-$unload_module2="fcoe"
+#$unload_module1="bnx2i"
+#$unload_module2="fcoe"
 
 # Connect to the vCenter Server
 foreach ($VcInfo in (import-csv -path $VcInfoFile))
