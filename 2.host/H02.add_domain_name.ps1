@@ -1,5 +1,5 @@
 #
-# add dns
+# add dns & ipv6 disable
 #
 
 . "$HOME/scripts/globalval.ps1"
