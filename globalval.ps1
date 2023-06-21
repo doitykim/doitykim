@@ -4,11 +4,8 @@
 # vCenter 정보와 작업 대상 ESXi 서버에 사용될 정보를 저장한 파일을 지정한다.
 #
 #
-#$TgtFile = "$HOME/scripts/0.target/tgt_gs.csv"
-#$VcInfoFile = "$HOME/scripts/0.target/vc_vc70.csv"
-# for test
-$TgtFile = "$HOME/scripts/0.target/tgt_iroo.csv"
-$VcInfoFile = "$HOME/scripts/0.target/vc_iroo.csv"
+$TgtFile = "$HOME/scripts/0.target/tgt_gs.csv"
+$VcInfoFile = "$HOME/scripts/0.target/vc_vc70.csv"
 
 # ntp server
 $time1 = "time1.daumkakao.io" 
@@ -34,7 +31,7 @@ $service1_pg_vlan = "10"
 $service2_pg_vlan = "20"
 
 #iscsi
-$iscsi_adapter="vmhba65"
+$iscsi_adapter="vmhba64"
 $iscsi_vmk1="vmk2"
 $iscsi_vmk2="vmk3"
 
